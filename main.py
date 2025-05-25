@@ -1,6 +1,7 @@
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 import csv
+from typing import List
 import os
 
 app = FastAPI()
@@ -24,6 +25,6 @@ with open("marks.csv", newline='') as f:
             marks_data[name.strip()] = int(mark.strip())
 
 @app.get("/api")
-def get_marks(name: list[str] = []):
+def get_marks(name: List[str] = []):
     result = [marks_data.get(n, None) for n in name]
     return {"marks": result}
