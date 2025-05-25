@@ -1,1 +1,2 @@
-
+mkdir fastapi-vercel
+cd fastapi-vercel
